@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import GameBoard from "./components/GameBoard";
+import RestartButton from "./components/RestartButton"
 import "./App.css";
 
 const App = () => {
@@ -62,19 +64,8 @@ const App = () => {
   return (
     <div className="container">
       <h1>{message}</h1>
-      <div id="gameboard">
-        {spaces.map((value, index) => (
-          <div
-            key={index}
-            id={`box-${index}`}
-            className="box"
-            onClick={() => handleClick(index)}
-          >
-            {value}
-          </div>
-        ))}
-      </div>
-      <button onClick={restartGame}>Restart Game</button>
+      <GameBoard spaces={spaces} onClick={handleClick} />
+      <RestartButton onRestart={restartGame} />
     </div>
   );
 };
