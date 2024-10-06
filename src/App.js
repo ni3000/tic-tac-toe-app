@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GameBoard from "./components/GameBoard";
-import RestartButton from "./components/RestartButton"
+import RestartButton from "./components/RestartButton";
+import Score from "./components/Score";
 import "./App.css";
 
 const App = () => {
@@ -8,6 +9,10 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [gameOver, setGameOver] = useState(false);
   const [message, setMessage] = useState("Tic Tac Toe");
+
+  // Track score
+  const [scoreX, setScoreX] = useState(0);
+  const [scoreO, setScoreO] = useState(0);
 
   const winningCombos = [
     [0, 1, 2],
@@ -42,6 +47,13 @@ const App = () => {
           document.getElementById(`box-${i}`).style.backgroundColor = "var(--winning-blocks)";
         });
         setGameOver(true);
+
+        // Update score
+        if (currentPlayer === "X") {
+          setScoreX(scoreX + 1);
+        } else {
+          setScoreO(scoreO + 1);
+        }
       } else {
         setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
       }
@@ -64,6 +76,8 @@ const App = () => {
   return (
     <div className="container">
       <h1>{message}</h1>
+      {/* Render the Score component */}
+      <Score scoreX={scoreX} scoreO={scoreO} />
       <GameBoard spaces={spaces} onClick={handleClick} />
       <RestartButton onRestart={restartGame} />
     </div>

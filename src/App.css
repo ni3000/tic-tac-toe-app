@@ -11,7 +11,8 @@
 
 body {
   color: var(--cyan);
-  font-family: 'Finger Paint', cursive;
+  /* font-family: 'Finger Paint', cursive; */
+  font-family: 'Finger Paint';
 }
 
 h1 {
@@ -46,14 +47,15 @@ h1 {
   font-size: 120px;
   border-right: 2px solid;
   border-bottom: 2px solid;
-  background-color: #37505C; /* Initial background for all boxes */
+  background-color: #37505C;
+  /* Initial background for all boxes */
 }
 
 .box:nth-child(3n) {
   border-right: none;
 }
 
-.box:nth-child(6) ~ .box {
+.box:nth-child(6)~.box {
   border-bottom: none;
 }
 
@@ -66,10 +68,22 @@ button {
   font-size: 18px;
   transition: 200ms transform;
   font-weight: 650;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 button:hover {
   cursor: pointer;
   transform: translateY(-2.5px);
+}
+
+.score-board {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.score {
+  font-size: 24px;
+  color: var(--cyan);
 }
