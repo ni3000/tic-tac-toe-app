@@ -55,16 +55,16 @@ const App = () => {
         // Update score
         if (currentPlayer === "X") {
           setScoreX(scoreX + 2);
-        } 
+        }
         else {
           setScoreO(scoreO + 2);
         }
-      } 
+      }
       else if (checkDraw(newSpaces)) {
         setMessage("Its a draw!");
-        setGameOver(true);
         setScoreO(scoreO + 1);
         setScoreX(scoreX + 1);
+        setGameOver(true);
       }
 
       else {
