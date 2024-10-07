@@ -12,7 +12,7 @@
 body {
   color: var(--cyan);
   /* font-family: 'Finger Paint', cursive; */
-  font-family: 'Finger Paint';
+  font-family: 'Finger Paint', cursive;
 }
 
 h1 {
@@ -68,6 +68,7 @@ button {
   font-size: 18px;
   transition: 200ms transform;
   font-weight: 650;
+  font-family: 'Finger Paint', cursive;
   margin-top: 40px;
 }
 
