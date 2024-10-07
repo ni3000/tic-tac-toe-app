@@ -35,6 +35,10 @@ const App = () => {
     return false;
   };
 
+  const checkDraw = (updatedSpaces) => {
+    return updatedSpaces.every((spaces) => spaces !== null)
+  }
+
   const handleClick = (index) => {
     if (!spaces[index] && !gameOver) {
       const newSpaces = [...spaces];
@@ -50,11 +54,20 @@ const App = () => {
 
         // Update score
         if (currentPlayer === "X") {
-          setScoreX(scoreX + 1);
-        } else {
-          setScoreO(scoreO + 1);
+          setScoreX(scoreX + 2);
+        } 
+        else {
+          setScoreO(scoreO + 2);
         }
-      } else {
+      } 
+      else if (checkDraw(newSpaces)) {
+        setMessage("Its a draw!");
+        setGameOver(true);
+        setScoreO(scoreO + 1);
+        setScoreX(scoreX + 1);
+      }
+
+      else {
         setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
       }
 
